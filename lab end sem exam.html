@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Portal</title>
+
+    <style>
+        body {
+            text-align: center;
+            padding: 30px;
+            font-family: Arial;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 350px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 25px;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkblue;
+        }
+
+        h1 {
+            color: blue;
+        }
+
+        #dashboard {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="login">
+
+        <h1>Welcome to Student Portal</h1>
+        <h3>Home Page</h3>
+        <p>Please login to continue</p>
+
+        <input type="text" id="name"
+            placeholder="Enter Your Name">
+
+        <br><br>
+
+        <button onclick="login()">Login</button>
+
+    </div>
+
+    <div class="container" id="dashboard">
+
+        <h1>Student Portal</h1>
+        <h3>Home Page</h3>
+
+        <h3 id="welcome"></h3>
+
+        <h2>Dashboard</h2>
+        <p>You are successfully logged in.</p>
+
+        <h3>Student Profile</h3>
+
+        <p id="studentName"></p>
+        <p>Status: Active</p>
+
+        <button onclick="logout()">Logout</button>
+
+    </div>
+
+    <script>
+
+        function login() {
+
+            let name = document.getElementById("name").value;
+
+            if (name.trim() !== "") {
+
+                document.getElementById("login").style.display = "none";
+
+                document.getElementById("dashboard").style.display = "block";
+
+                document.getElementById("welcome").innerHTML =
+                    "Welcome, " + name + "!";
+
+                document.getElementById("studentName").innerHTML =
+                    "Name: " + name;
+
+            } else {
+                alert("Please enter your name");
+            }
+        }
+
+        function logout() {
+
+            document.getElementById("dashboard").style.display = "none";
+
+            document.getElementById("login").style.display = "block";
+
+            document.getElementById("name").value = "";
+
+        }
+
+    </script>
+
+</body>
+</html>
